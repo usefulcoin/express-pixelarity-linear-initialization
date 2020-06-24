@@ -71,7 +71,7 @@ npm install --save-dev node-sass && echo [$0] node-sass installed as a developer
 
 # step 7: install template.
 unzip ../linear.zip -d /tmp && mv /tmp/linear/purple linear && echo [$0] unzipped template archive.
-cp -R linear/assets/webfonts/* public/fonts && echo [$0] installed fonts.
+cp -R linear/assets/webfonts public && echo [$0] installed fonts.
 cp linear/assets/js/* public/javascripts && echo [$0] installed javascripts.
 cp -R linear/assets/sass public/stylesheets && echo [$0] installed sass modules.
 cp linear/assets/css/* public/stylesheets && echo [$0] installed stylesheets.
@@ -79,7 +79,7 @@ html2pug < linear/index.html > /tmp/puggified.html && sed -e 's#assets/css#style
 html2pug < linear/elements.html > /tmp/puggified.html && sed -e 's#assets/css#stylesheets#g;s#assets/js#javascripts#g' /tmp/puggified.html > views/elements.pug && echo [$0] installed elements.html.
 html2pug < linear/generic.html > /tmp/puggified.html && sed -e 's#assets/css#stylesheets#g;s#assets/js#javascripts#g' /tmp/puggified.html > views/generic.pug && echo [$0] installed generic.html.
 cp -R linear/images public && echo [$0] installed images.
-rm -rf linear && rm -rf ../linear.zip && echo [$0] removing linear directory & zip archive.
+rm -rf linear && rm -rf ../linear.zip && echo [$0] removing linear directory and zip archive.
 
 # step 7: start application
 echo [$0] starting web application && DEBUG=linear:* npm start
