@@ -63,19 +63,21 @@ EOF
 # step 6: create application skeleton.
 express --css sass --view pug linear && echo [$0] created web application skeleton.
 npm set init.repository 'https://github.com/usefulcoin/express-pixelarity-linear-initialization.git' && echo [$0] set default repository.
-npm set init.description 'Fresh set up of the Pixelarity Standout template for a NodeJS/Express Server' && echo [$0] set default description.
+npm set init.description 'Fresh set up of the Pixelarity Linear template for a NodeJS/Express Server' && echo [$0] set default description.
 cd linear && npm init --yes && npm install && echo [$0] application initialized and essential node modules installed.
 npm install --save-dev nodemon && echo [$0] nodemon installed as a developer dependency.
 npm install --save-dev s3-cli && echo [$0] s3-cli installed as a developer dependency.
 npm install --save-dev node-sass && echo [$0] node-sass installed as a developer dependency.
 
 # step 7: install template.
-unzip ../linear.zip -d /tmp/linear && mv /tmp/linear/linear . && echo [$0] unzipped template archive.
-cp -R linear/assets/fonts public && echo [$0] installed fonts.
+unzip ../linear.zip -d /tmp/linear && mv /tmp/linear/linear/purple . && echo [$0] unzipped template archive.
+cp -R linear/assets/webfonts/* public/fonts && echo [$0] installed fonts.
 cp linear/assets/js/* public/javascripts && echo [$0] installed javascripts.
 cp -R linear/assets/sass public/stylesheets && echo [$0] installed sass modules.
 cp linear/assets/css/* public/stylesheets && echo [$0] installed stylesheets.
 html2pug < linear/index.html > /tmp/puggified.html && sed -e 's#assets/css#stylesheets#g;s#assets/js#javascripts#g' /tmp/puggified.html > views/index.pug && echo [$0] installed index.html.
+html2pug < linear/elements.html > /tmp/puggified.html && sed -e 's#assets/css#stylesheets#g;s#assets/js#javascripts#g' /tmp/puggified.html > views/elements.pug && echo [$0] installed elements.html.
+html2pug < linear/generic.html > /tmp/puggified.html && sed -e 's#assets/css#stylesheets#g;s#assets/js#javascripts#g' /tmp/puggified.html > views/generic.pug && echo [$0] installed generic.html.
 cp -R linear/images public && echo [$0] installed images.
 rm -rf linear && rm -rf ../linear.zip && echo [$0] removing linear directory & zip archive.
 
