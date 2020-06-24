@@ -21,8 +21,8 @@ step 8: start application.
 
 ## Execution
 ```sh
-git clone https://github.com/usefulcoin/express-pixelarity-standout-initialization.git
-cd express-pixelarity-standout-initialization
+git clone https://github.com/usefulcoin/express-pixelarity-linear-initialization.git
+cd express-pixelarity-linear-initialization
 bash setup.bash
 ```
 
